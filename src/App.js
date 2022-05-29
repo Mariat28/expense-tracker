@@ -1,6 +1,8 @@
+import React from 'react';
 import './App.css';
-import Expenses from './components/Expenses';
-function App() {
+import Card from './components/ui/Card';
+import Expenses from './components/expenses/Expenses';
+const App = () => {
   const expenses = [
     {
       id: 'e1',
@@ -22,12 +24,14 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+  // JSX alternative 
+  // return React.createElement('div', {className: 'App flex flex-col gap-2 items-center w-full'}, React.createElement('h2', {}, 'expense tracker'), React.createElement(Card, {className: ' bg-black w-1/2 py-4 px-2'}, React.createElement(Expenses, {expenses:expenses})),)
   return (
     <div className="App flex flex-col gap-2 items-center w-full">
       <h2>expense tracker</h2>
-      <div className=" bg-black w-1/2 py-4 px-2">
+      <Card className=" bg-black w-1/2 py-4 px-2">
         <Expenses expenses={expenses}/>
-      </div>
+      </Card>
     </div>
   );
 }

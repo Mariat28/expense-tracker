@@ -1,5 +1,5 @@
 import ExpenseItem from "./ExpenseItem";
-function Expenses(props) {
+const Expenses = (props) => {
   return (
     <div className="w-full p-1 flex flex-col items-center gap-2">
       <ExpenseItem
