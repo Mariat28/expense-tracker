@@ -1,8 +1,11 @@
+import React, { useState } from 'react';
 import ExpenseDate from "./ExpenseDate";
 import Card from "../ui/Card";
-
 const ExpenseItem = (props) => {
+  const [title, setTitle] = useState(props.title);
+
   const clickHandler = () => {
+    setTitle(' updated !'); 
     console.log('clicked!!!!')
   }
   return (
@@ -11,7 +14,7 @@ const ExpenseItem = (props) => {
         <div className="flex justify-between  p-2 gap-2 w-full items-center">
           <div className="flex items-center gap-2">
             <ExpenseDate date={props.date}/>
-            <h2 className="font-semibold">{props.title}</h2>
+            <h2 className="font-semibold">{title}</h2>
           </div>
           <div className="flex bg-white p-1 rounded-md text-slate-500 cursor-pointer gap-2">
             <small>${props.amount}</small>
