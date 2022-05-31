@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Card from './components/ui/Card';
+import NewExpense from './components/newexpense/NewExpense';
 import Expenses from './components/expenses/Expenses';
 const App = () => {
   const expenses = [
@@ -28,7 +29,7 @@ const App = () => {
   // return React.createElement('div', {className: 'App flex flex-col gap-2 items-center w-full'}, React.createElement('h2', {}, 'expense tracker'), React.createElement(Card, {className: ' bg-black w-1/2 py-4 px-2'}, React.createElement(Expenses, {expenses:expenses})),)
   return (
     <div className="App flex flex-col gap-2 items-center w-full">
-      <h2>expense tracker</h2>
+      <NewExpense/>
       <Card className=" bg-black w-1/2 py-4 px-2">
         <Expenses expenses={expenses}/>
       </Card>

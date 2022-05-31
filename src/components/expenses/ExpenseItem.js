@@ -6,8 +6,9 @@ const ExpenseItem = (props) => {
 
   const clickHandler = () => {
     setTitle(' updated !'); 
-    console.log('clicked!!!!')
+    console.log(title);
   }
+  
   return (
     <div className="w-full">
       <Card className="flex justify-start bg-slate-500 text-white  mx-2">
@@ -16,9 +17,9 @@ const ExpenseItem = (props) => {
             <ExpenseDate date={props.date}/>
             <h2 className="font-semibold">{title}</h2>
           </div>
-          <div className="flex bg-white p-1 rounded-md text-slate-500 cursor-pointer gap-2">
-            <small>${props.amount}</small>
-            <button onClick={clickHandler}>Change Title</button>
+          <div className="flex  p-1 rounded-md text-slate-500 cursor-pointer items-center gap-2">
+            <small className='bg-purple-900 text-white p-1 rounded-md border-white border cursor-pointer'>${props.amount}</small>
+            <button className='rounded shadow-lg bg-white p-1' onClick={clickHandler}>Change Title</button>
           </div>
         </div>
       </Card>
