@@ -25,11 +25,14 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
+  const addExpenseHandler = (expense) => {
+    console.log('expense data', expense);
+  }
   // JSX alternative 
   // return React.createElement('div', {className: 'App flex flex-col gap-2 items-center w-full'}, React.createElement('h2', {}, 'expense tracker'), React.createElement(Card, {className: ' bg-black w-1/2 py-4 px-2'}, React.createElement(Expenses, {expenses:expenses})),)
   return (
     <div className="App flex flex-col gap-2 items-center w-full">
-      <NewExpense/>
+      <NewExpense onAddExpense = {addExpenseHandler}/>
       <Card className=" bg-black w-1/2 py-4 px-2">
         <Expenses expenses={expenses}/>
       </Card>
