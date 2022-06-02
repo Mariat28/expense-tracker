@@ -1,35 +1,28 @@
+//stateful/smart components
+
 import { useState } from "react";
 import ExpenseItem from "./ExpenseItem";
 import ExpenseFilter from "../expenseFilter/ExpenseFilter";
 
 const Expenses = (props) => {
-  const [filterItem, setFilterItem] = useState('');
+  const [filteredYear, setFilteredYear] = useState('2020');
 
-  const filterExpensesHandler = (selectedFilterItem) =>{
-    setFilterItem(selectedFilterItem);
-    console.log('selected year', filterItem);
-  }
+  const filterExpensesHandler = (selectedYear) =>{
+    setFilteredYear(selectedYear);
+  };
+  const filteredExpenses = props.expenses.filter(expense => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
   return (
     <div className="w-full p-1 flex  flex-col items-center gap-2">
-      <div className="flex justify-end w-full p-2 ">
-        <ExpenseFilter onFilterItemChangeHandler={filterExpensesHandler}/>
-        <div className="text-white font-bold">{filterItem}</div>
+      <div className="flex flex-col gap-2 items-end justify-end w-full p-2 ">
+        <ExpenseFilter onFilterItemChange={filterExpensesHandler} selectedYear={filteredYear}/>
+        {filteredExpenses.length === 0 ? <p className="text-white bg-red-500 h-20">No expenses found</p> : filteredExpenses.map(expense => <ExpenseItem
+        key={expense.id}
+        title = {expense.title}
+        amount = {expense.amount}
+        date = {expense.date}/>)}
       </div>
-      <ExpenseItem
-        title={props.expenses[0].title}
-        amount={props.expenses[0].amount}
-        date={props.expenses[0].date}
-      />
-      <ExpenseItem
-        title={props.expenses[1].title}
-        amount={props.expenses[1].amount}
-        date={props.expenses[1].date}
-      />
-      <ExpenseItem
-        title={props.expenses[2].title}
-        amount={props.expenses[2].amount}
-        date={props.expenses[2].date}
-      />
     </div>
   );
 }
