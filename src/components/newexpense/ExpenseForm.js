@@ -41,6 +41,9 @@ const ExpenseForm = (props) => {
       setEnteredDate( '');
 
   }
+  const hideFormHandler = () => {
+    props.onClose();
+  }
   return (
     <form className="border shadow-2xl mt-3 p-2" onSubmit={submitHandler}>
       <div className="flex flex-col w-full gap-2  rounded p-2">
@@ -97,7 +100,14 @@ const ExpenseForm = (props) => {
           </div>
         </div>
       </div>
-      <div className="flex justify-end m-2">
+      <div className="flex justify-end m-2 gap-2">
+      <button
+          type="button"
+          className="font-semibold bg-transparent text-red-500 border-red-500 rounded-md px-2 py-1 hover:bg-red-500 hover:text-white border hover:border-white"
+          onClick={ hideFormHandler }
+        >
+          Cancel
+        </button>
         <button
           type="submit"
           className="bg-black text-white rounded-md px-2 py-1 hover:bg-transparent hover:text-black border hover:border-black"

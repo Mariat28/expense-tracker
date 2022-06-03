@@ -9,9 +9,12 @@ const NewExpense = (props) =>{
          props.onAddExpense(expenseData);
 
      }
+     const closeFormHandler = () => {
+         props.onCancelForm();
+     }
     return(
         <div className="w-1/2">
-            <ExpenseForm onSaveExpenseData = {saveExpenseDataHandler}/>
+            <ExpenseForm onSaveExpenseData = {saveExpenseDataHandler} onClose={closeFormHandler}/>
         </div>
     )
 
