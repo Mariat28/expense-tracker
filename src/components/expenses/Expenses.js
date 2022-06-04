@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ExpenseFilter from "../expenseFilter/ExpenseFilter";
 import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpenseChart";
 
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState('2020');
@@ -20,6 +21,9 @@ const Expenses = (props) => {
       <div className="flex flex-col gap-2  w-full p-0 ">
         <div className="flex justify-end">
           <ExpenseFilter onFilterItemChange={filterExpensesHandler} selectedYear={filteredYear}/>
+        </div>
+        <div className="w-full">
+          <ExpensesChart expenses={filteredExpenses}/>
         </div>
         <li className="w-full">
         {/* {filteredExpenses.length === 0 && <p className="text-white ">No expenses found!</p>} */}

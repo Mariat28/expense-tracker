@@ -42,7 +42,7 @@ const App = () => {
   // JSX alternative 
   // return React.createElement('div', {className: 'App flex flex-col gap-2 items-center w-full'}, React.createElement('h2', {}, 'expense tracker'), React.createElement(Card, {className: ' bg-black w-1/2 py-4 px-2'}, React.createElement(Expenses, {expenses:expenses})),)
   return (
-    <div className="App flex flex-col gap-2 items-center w-full">
+    <div className="App flex flex-col bg-red-500 gap-2 items-center w-screen container">
     {!isAddFormOpen ? (<div className='mt-2 w-1/2 flex justify-end p-1'>
       <button
           type="button"
@@ -50,7 +50,7 @@ const App = () => {
         onClick={displayAddFormHandler}>Add New Expense</button>
       </div>) : ( <NewExpense onAddExpense = {addExpenseHandler} onCancelForm={displayAddFormHandler}/>) }  
      
-      <Card className=" bg-black w-1/2 py-4 px-2">
+      <Card className=" bg-black w-full py-4 px-2">
         <Expenses expenses={expenses}/>
       </Card>
     </div>
