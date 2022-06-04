@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { IoAdd } from 'react-icons/io5'
 import './App.css';
 import Card from './components/ui/Card';
 import NewExpense from './components/newexpense/NewExpense';
@@ -42,12 +43,12 @@ const App = () => {
   // JSX alternative 
   // return React.createElement('div', {className: 'App flex flex-col gap-2 items-center w-full'}, React.createElement('h2', {}, 'expense tracker'), React.createElement(Card, {className: ' bg-black w-1/2 py-4 px-2'}, React.createElement(Expenses, {expenses:expenses})),)
   return (
-    <div className="App flex flex-col bg-red-500 gap-2 items-center w-screen container">
-    {!isAddFormOpen ? (<div className='mt-2 w-1/2 flex justify-end p-1'>
+    <div className="App flex flex-col  gap-2 items-center w-screen container mx-auto">
+    {!isAddFormOpen ? (<div className='mt-2 w-full flex justify-end p-1'>
       <button
           type="button"
-          className="bg-black text-white rounded-md px-2 py-1 hover:bg-transparent hover:text-black border hover:border-black"
-        onClick={displayAddFormHandler}>Add New Expense</button>
+          className="bg-black flex items-center text-white rounded-md px-2 py-1 hover:bg-transparent hover:text-black border hover:border-black"
+        onClick={displayAddFormHandler}><IoAdd ></IoAdd>Add New Expense</button>
       </div>) : ( <NewExpense onAddExpense = {addExpenseHandler} onCancelForm={displayAddFormHandler}/>) }  
      
       <Card className=" bg-black w-full py-4 px-2">

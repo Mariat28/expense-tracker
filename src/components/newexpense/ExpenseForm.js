@@ -31,7 +31,7 @@ const ExpenseForm = (props) => {
       event.preventDefault();
       const expenseData = {
           title: enteredTitle,
-          amount: enteredAmount,
+          amount: +enteredAmount,
           date: new Date(enteredDate),
 
       }
@@ -104,7 +104,7 @@ const ExpenseForm = (props) => {
       <button
           type="button"
           className="font-semibold bg-transparent text-red-500 border-red-500 rounded-md px-2 py-1 hover:bg-red-500 hover:text-white border hover:border-white"
-          onClick={ hideFormHandler }
+          onClick={hideFormHandler}
         >
           Cancel
         </button>
