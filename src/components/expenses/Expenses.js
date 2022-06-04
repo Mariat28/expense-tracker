@@ -12,9 +12,15 @@ const Expenses = (props) => {
     setFilteredYear(selectedYear);
   };
 
-  const filteredExpenses = props.expenses.filter(expense => {
-    return expense.date.getFullYear().toString() === filteredYear;
-  });
+
+  let filteredExpenses = [];
+  if(filteredYear === 'All') {
+    filteredExpenses = props.expenses
+  } else{
+    filteredExpenses = props.expenses.filter(expense => {
+      return expense.date.getFullYear().toString() === filteredYear;
+    });
+  }
 
   return (
     <div className="w-full p-1 flex  flex-col items-center gap-2">

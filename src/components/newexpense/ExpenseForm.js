@@ -45,7 +45,7 @@ const ExpenseForm = (props) => {
     props.onClose();
   }
   return (
-    <form className="border shadow-2xl mt-3 p-2" onSubmit={submitHandler}>
+    <form className="border shadow-2xl mt-3   rounded-2xl" onSubmit={submitHandler}>
       <div className="flex flex-col w-full gap-2  rounded p-2">
         <div className="flex w-full items-center justify-start">
           <div className="w-1/6 flex justify-start font-semibold text-black">
@@ -100,17 +100,17 @@ const ExpenseForm = (props) => {
           </div>
         </div>
       </div>
-      <div className="flex justify-end m-2 gap-2">
+      <div className="flex justify-between bg-gray-200 p-2 gap-2">
       <button
           type="button"
-          className="font-semibold bg-transparent text-red-500 border-red-500 rounded-md px-2 py-1 hover:bg-red-500 hover:text-white border hover:border-white"
+          className="font-semibold text-sm bg-transparent text-red-500 border-red-500 rounded-md px-2 py-1 hover:bg-red-500 hover:text-white border hover:border-white"
           onClick={hideFormHandler}
         >
           Cancel
         </button>
         <button
           type="submit"
-          className="bg-black text-white rounded-md px-2 py-1 hover:bg-transparent hover:text-black border hover:border-black"
+          className="bg-purple-300 text-purple-800 flex items-center  rounded-md px-2 py-1 hover:bg-purple-900 hover:text-purple-300 border hover:border-purple-900"
         >
           Add Expense
         </button>

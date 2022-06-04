@@ -1,7 +1,7 @@
 //controlled component i.e all logic is controlled or managed by the parent component
 import { useState } from "react";
 const ExpenseFilter = (props) => {
-  const filterItems = ['2022','2021', '2020', '2019' ];
+  const filterItems = ['All', '2022','2021', '2020', '2019' ];
   const [selectedYear, setSelectedYear] = useState('');
   const [isFilter, setIsFilter] = useState(false);
   const filterDisplayHandler = () =>{

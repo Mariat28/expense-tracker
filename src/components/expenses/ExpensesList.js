@@ -1,7 +1,7 @@
 import ExpenseItem from "./ExpenseItem";
 const ExpensesList = (props) => {
     if(props.filteredExpenses.length === 0){
-      return <h2 className="text-white">found no expenses!</h2>
+      return <h2 className="text-black font-semibold">found no expenses!</h2>
     }
     const classes = props.className;
     return(

@@ -13,7 +13,7 @@ const NewExpense = (props) =>{
          props.onCancelForm();
      }
     return(
-        <div className="w-1/2">
+        <div className="w-1/2 transition-all ease-in-out duration-300">
             <ExpenseForm onSaveExpenseData = {saveExpenseDataHandler} onClose={closeFormHandler}/>
         </div>
     )

@@ -27,18 +27,18 @@ const dummy_expenses = [
 ];
 const App = () => {
   const [expenses, setExpenses] = useState(dummy_expenses);
-  const [isAddFormOpen, setAAddFormOpen] = useState(false);
+  const [isAddFormOpen, setAddFormOpen] = useState(false);
 
   const addExpenseHandler = (expense) => {
     // for updating state that is dependent on a previous state
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
-    setAAddFormOpen(false);
+    setAddFormOpen(false);
     console.log('expense data', expense);
   }
   const displayAddFormHandler = () => {
-    setAAddFormOpen(!isAddFormOpen);
+    setAddFormOpen(!isAddFormOpen);
   }
   // JSX alternative 
   // return React.createElement('div', {className: 'App flex flex-col gap-2 items-center w-full'}, React.createElement('h2', {}, 'expense tracker'), React.createElement(Card, {className: ' bg-black w-1/2 py-4 px-2'}, React.createElement(Expenses, {expenses:expenses})),)
@@ -47,11 +47,11 @@ const App = () => {
     {!isAddFormOpen ? (<div className='mt-2 w-full flex justify-end p-1'>
       <button
           type="button"
-          className="bg-black flex items-center text-white rounded-md px-2 py-1 hover:bg-transparent hover:text-black border hover:border-black"
+          className="bg-purple-300 text-purple-800 flex items-center  rounded-md px-2 py-1 hover:bg-purple-900 hover:text-purple-300 border hover:border-purple-900"
         onClick={displayAddFormHandler}><IoAdd ></IoAdd>Add New Expense</button>
-      </div>) : ( <NewExpense onAddExpense = {addExpenseHandler} onCancelForm={displayAddFormHandler}/>) }  
+      </div>) : ( <NewExpense onAddExpense = {addExpenseHandler} onCancelForm={displayAddFormHandler}/>) }
      
-      <Card className=" bg-black w-full py-4 px-2">
+      <Card className=" bg-white mt-5 border-t border-l border-purple-500 w-full py-4 px-2">
         <Expenses expenses={expenses}/>
       </Card>
     </div>
